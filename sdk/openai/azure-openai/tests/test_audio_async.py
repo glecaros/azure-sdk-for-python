@@ -14,7 +14,6 @@ audio_long_test_file = os.path.abspath(os.path.join(os.path.abspath(__file__), "
 
 
 class TestAudioAsync(AzureRecordedTestCase):
-
     @pytest.mark.asyncio
     @pytest.mark.parametrize("api_type", ALL)
     @configure_async
@@ -74,14 +73,16 @@ class TestAudioAsync(AzureRecordedTestCase):
             model=azure_openai_creds["audio_model"],
             deployment_id=azure_openai_creds["audio_name"],
         )
-        assert result.text == "The ocelot, Lepardus paradalis, is a small wild cat native to the southwestern " \
-            "United States, Mexico, and Central and South America. This medium-sized cat is characterized by " \
-            "solid black spots and streaks on its coat, round ears, and white neck and undersides. It weighs " \
-            "between 8 and 15.5 kilograms, 18 and 34 pounds, and reaches 40 to 50 centimeters – 16 to 20 inches " \
-            "– at the shoulders. It was first described by Carl Linnaeus in 1758. Two subspecies are recognized, " \
-            "L. p. paradalis and L. p. mitis. Typically active during twilight and at night, the ocelot tends to " \
-            "be solitary and territorial. It is efficient at climbing, leaping, and swimming. It preys on small " \
+        assert (
+            result.text == "The ocelot, Lepardus paradalis, is a small wild cat native to the southwestern "
+            "United States, Mexico, and Central and South America. This medium-sized cat is characterized by "
+            "solid black spots and streaks on its coat, round ears, and white neck and undersides. It weighs "
+            "between 8 and 15.5 kilograms, 18 and 34 pounds, and reaches 40 to 50 centimeters – 16 to 20 inches "
+            "– at the shoulders. It was first described by Carl Linnaeus in 1758. Two subspecies are recognized, "
+            "L. p. paradalis and L. p. mitis. Typically active during twilight and at night, the ocelot tends to "
+            "be solitary and territorial. It is efficient at climbing, leaping, and swimming. It preys on small "
             "terrestrial mammals such as armadillo, opossum, and lagomorphs."
+        )
         assert result.task == "transcribe"
         assert result.language == "english"
         assert result.duration == 56.25
@@ -143,14 +144,16 @@ class TestAudioAsync(AzureRecordedTestCase):
             model=azure_openai_creds["audio_model"],
             deployment_id=azure_openai_creds["audio_name"],
         )
-        assert result.text == "The ocelot, Lepardus paradalis, is a small wild cat native to the southwestern " \
-            "United States, Mexico, and Central and South America. This medium-sized cat is characterized by " \
-            "solid black spots and streaks on its coat, round ears, and white neck and undersides. It weighs " \
-            "between 8 and 15.5 kilograms, 18 and 34 pounds, and reaches 40 to 50 centimeters – 16 to 20 inches " \
-            "– at the shoulders. It was first described by Carl Linnaeus in 1758. Two subspecies are recognized, " \
-            "L. p. paradalis and L. p. mitis. Typically active during twilight and at night, the ocelot tends to " \
-            "be solitary and territorial. It is efficient at climbing, leaping, and swimming. It preys on small " \
+        assert (
+            result.text == "The ocelot, Lepardus paradalis, is a small wild cat native to the southwestern "
+            "United States, Mexico, and Central and South America. This medium-sized cat is characterized by "
+            "solid black spots and streaks on its coat, round ears, and white neck and undersides. It weighs "
+            "between 8 and 15.5 kilograms, 18 and 34 pounds, and reaches 40 to 50 centimeters – 16 to 20 inches "
+            "– at the shoulders. It was first described by Carl Linnaeus in 1758. Two subspecies are recognized, "
+            "L. p. paradalis and L. p. mitis. Typically active during twilight and at night, the ocelot tends to "
+            "be solitary and territorial. It is efficient at climbing, leaping, and swimming. It preys on small "
             "terrestrial mammals such as armadillo, opossum, and lagomorphs."
+        )
         assert result.task == "translate"
         assert result.language == "english"
         assert result.duration == 56.25
